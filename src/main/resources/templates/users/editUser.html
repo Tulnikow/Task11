@@ -9,7 +9,7 @@
 <div align="center">
     <h1>Edit User</h1>
     <br/>
-    <form action="#" th:action="@{../save}" th:object="${user}"
+    <form action="#" th:action="@{/users/save}" th:object="${user}"
           method="post">
 
         <table border="0" cellpadding="10">
@@ -23,19 +23,29 @@
                 <td>User Name:</td>
                 <td>
                     <input type="text" th:field="*{userName}"/>
+                    <div style="color:red" th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}">Username
+                        Error
+                    </div>
                 </td>
             </tr>
             <tr>
                 <td>User LastName:</td>
                 <td><input type="text" th:field="*{userLastname}"/></td>
+                <div style="color:red" th:if="${#fields.hasErrors('userLastname')}" th:errors="*{userLastname}">
+                    UserLastname Error
+                </div>
             </tr>
             <tr>
                 <td>Mail:</td>
                 <td><input type="text" th:field="*{userMail}"/></td>
+                <div style="color:red" th:if="${#fields.hasErrors('userMail')}" th:errors="*{userMail}">UserMail Error
+                </div>
             </tr>
             <tr>
                 <td>Age:</td>
                 <td><input type="text" th:field="*{userAge}"/></td>
+                <div style="color:red" th:if="${#fields.hasErrors('userAge')}" th:errors="*{userAge}">userAge Error
+                </div>
             </tr>
             <tr>
                 <td colspan="2">
